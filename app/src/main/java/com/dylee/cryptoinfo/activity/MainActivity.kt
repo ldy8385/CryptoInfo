@@ -35,12 +35,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         api !!.getLatestInfoForSymbol("BTCUSDT").enqueue(this) {
 //            getLastestInfoForSymbolOut = it.body().result
             for (i in it.body()!!.result!!) {
-                Log.e("cccccc", i.toString())
                 getLastestInfoForSymbolOut = i
             }
-            Log.e("aaaaaaaaa", it.body().toString())
         }
-        Log.e("dddddd",getLastestInfoForSymbolOut.toString())
         symbolTv.text = getLastestInfoForSymbolOut?.symbol ?: "no result"
         priceTv.text = getLastestInfoForSymbolOut?.bidPrice ?: "no result"
     }
